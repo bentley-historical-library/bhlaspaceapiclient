@@ -562,6 +562,20 @@ class ASpaceClient(object):
         else:
             return note["subnotes"][0]["content"]
 
+    def get_restriction_end_date(self, aspace_json):
+        accessrestricts = self.find_notes_by_type(aspace_json, "accessrestrict")
+        restriction_end_date = ""
+        if accessrestricts:
+            accessrestrict = accessrestricts[0]
+            if accessrestrict.get("rights_restriction", {}).get("end", False):
+                restriction_end_date = accessrestrict["rights_restriction"]["end"]
+            else:
+                note_content = self.format_note(accessrestrict)
+                parsable_note = etree.fromstring("<accessrestrict>{}</accessrestrict>".format(note_content))
+                if parsable_note.find("date") is not None:
+                    restriction_end_date = parsable_note.find("date").get("normal", "")
+        return restriction_end_date
+
     def get_resource_archival_object_uris(self, resource_number):
         resource_tree = self.get_resource_tree(resource_number)
         archival_object_uris = extract_archival_object_uris_from_children(
