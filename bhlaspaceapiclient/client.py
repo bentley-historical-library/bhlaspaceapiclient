@@ -90,7 +90,7 @@ class ASpaceClient(object):
                 sys.exit()
 
     def _save_config(self, config):
-        with open(self.config_file, "wb") as f:
+        with open(self.config_file, "w") as f:
             config.write(f)
 
     def _add_instance(self, config):

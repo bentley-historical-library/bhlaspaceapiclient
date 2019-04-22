@@ -9,7 +9,7 @@ Wrapper for working with the ArchivesSpace API that provides convenience functio
 ## Use
 
 ```python
-from bhlaspaceclient import ASpaceClient
+from bhlaspaceapiclient import ASpaceClient
 aspace = ASpaceClient()
 aspace.get_archival_object(1234)
 ```
