@@ -126,8 +126,8 @@ class ASpaceClient(object):
             print(authenticate)
             sys.exit()
 
-    def _request(self, method, url, params, expected_response, data=None):
-        response = method(url, params=params, data=data)
+    def _request(self, method, url, params, expected_response, data=None, json=None):
+        response = method(url, params=params, data=data, json=json)
         if response.status_code != expected_response:
             raise CommunicationError(response.status_code, response)
 
@@ -144,14 +144,14 @@ class ASpaceClient(object):
                              params=params,
                              expected_response=expected_response)
 
-    def _put(self, url, params={}, data=None, expected_response=200):
+    def _put(self, url, params={}, data=None, json=None, expected_response=200):
         return self._request(self.session.put, url,
                              params=params, data=data,
                              expected_response=expected_response)
 
-    def _post(self, url, params={}, data=None, expected_response=200):
+    def _post(self, url, params={}, data=None, json=None, expected_response=200):
         return self._request(self.session.post, url,
-                             params=params, data=data,
+                             params=params, data=data, json=json,
                              expected_response=expected_response)
 
     def _delete(self, url, params={}, expected_response=200):
