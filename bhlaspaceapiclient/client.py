@@ -70,7 +70,7 @@ class ASpaceClient(object):
         else:
             instance_mapping = {}
             instance_number = 0
-            print("*** CONFIGURED INSTANCES ***")
+            print("*** CONFIGURED ARCHIVESSPACE INSTANCES ***")
             for instance in instances:
                 instance_number += 1
                 instance_mapping[str(instance_number)] = instance
