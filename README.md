@@ -13,3 +13,11 @@ from bhlaspaceapiclient import ASpaceClient
 aspace = ASpaceClient()
 aspace.get_archival_object(1234)
 ```
+
+## Functions
+
+| Function | Description |
+| --- | --- |
+| `aspace.list_resources() | Get a list of Resources. :all_ids parameter is True. |
+
+
