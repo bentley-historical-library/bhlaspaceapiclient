@@ -18,6 +18,6 @@ aspace.get_archival_object(1234)
 
 | Function | Description |
 | --- | --- |
-| `aspace.list_resources() | Get a list of Resources. :all_ids parameter is True. |
+| `aspace.list_resources()` | Get a list of Resources. :all_ids parameter is True. |
 
 
